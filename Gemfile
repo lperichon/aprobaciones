@@ -30,3 +30,8 @@ gem 'sqlite3-ruby', :require => 'sqlite3'
 # end
 
 gem  'devise'
+
+group :test, :development do
+  gem "rspec-rails", ">= 2.0.0.beta.22"
+  gem "autotest"
+end
