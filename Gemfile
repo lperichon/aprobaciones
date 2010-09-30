@@ -29,7 +29,10 @@ gem 'sqlite3-ruby', :require => 'sqlite3'
 #   gem 'webrat'
 # end
 
-gem  'devise'
+gem  'devise', '1.1.3'
+gem 'devise_invitable', :git => 'git://github.com/scambra/devise_invitable.git'
+gem 'inherited_resources', '1.1.2'
+gem 'inherited_resources_views'
 
 group :test, :development do
   gem "rspec-rails", ">= 2.0.0.beta.22"

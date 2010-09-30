@@ -1,0 +1,20 @@
+<p><%= link_to "Invite", new_user_invitation_url %></p>
+
+<% if collection.any? %>
+<table>
+  <thead>
+    <tr>
+      <th><%= User.human_attribute_name :email %></th>
+    </tr>
+  </thead>
+  <tbody>
+  <% collection.each do |r| %>
+    <tr>
+      <td><%= r.email %></td>
+      <td><%= link_to "Show", resource_url(r) %></td>
+      <td><%= link_to "Destroy", resource_url(r), :confirm => 'Are you sure?', :method => :delete %></td>
+    </tr>
+  <% end %>
+  </tbody>
+</table>
+<% end %>
