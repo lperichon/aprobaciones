@@ -1,25 +1,44 @@
-<p><%= link_to "New", new_resource_url %></p>
-
 <% if collection.any? %>
 <table class="table">
   <thead>
     <tr>
-    <% collection.first.attributes.each do |a| %>
-      <th><%= a[0] %></th>
-    <% end %>
+      <% list_attributes(collection.first).each_with_index do |a, i| %>
+      <th class="<%='first' if i == 1 %>"><%= resource_class.human_attribute_name a %></th>
+      <% end %>
+      <th class="last"></th>
     </tr>
   </thead>
   <tbody>
-  <% collection.each do |r| %>
-    <tr>
-    <% r.attributes.each do |a| %>
-      <td><%= a[1] %></td>
-    <% end %>
-      <td><%= link_to "Show", resource_url(r) %></td>
-      <td><%= link_to "Edit", edit_resource_url(r) %></td>
-      <td><%= link_to "Destroy", resource_url(r), :confirm => 'Are you sure?', :method => :delete %></td>
+  <% collection.each_with_index do |r, n| %>
+    <tr class="<%= (n%2 == 0) ? 'even' : 'odd' %>">
+      <% list_attributes(r).each_with_index do |a, i| %>
+      <td class="<%='first' if i == 1 %>"><%= r.send a %></td>
+      <% end %>
+      <td class="last">
+        <% element_actions.each_with_index do |a, x| %>
+            <%= '|' unless x == 0 %>
+            <% case a %>
+            <% when :show %>
+                <%= link_to "Show", resource_url(r) %>
+            <% when :edit %>
+                <%= link_to "Edit", edit_resource_url(r) %>
+            <% when :destroy %>
+                <%= link_to "Destroy", resource_url(r), :confirm => 'Are you sure?', :method => :delete %>
+            <% end %>
+        <% end %>
+      </td>
     </tr>
   <% end %>
   </tbody>
 </table>
 <% end %>
+<div class="actions-bar wat-cf">
+  <div class="actions">
+    <% list_actions.each do |a| %>
+        <%= a %>
+    <% end %>
+  </div>
+  <div class="pagination">
+    <%= will_paginate collection %>
+  </div>
+</div>
