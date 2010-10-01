@@ -1,7 +1,7 @@
 <p><%= link_to "New", new_resource_url %></p>
 
 <% if collection.any? %>
-<table>
+<table class="table">
   <thead>
     <tr>
     <% collection.first.attributes.each do |a| %>

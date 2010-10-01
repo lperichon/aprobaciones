@@ -33,8 +33,10 @@ gem  'devise', '1.1.3'
 gem 'devise_invitable', :git => 'git://github.com/scambra/devise_invitable.git'
 gem 'inherited_resources', '1.1.2'
 gem 'inherited_resources_views'
+gem "will_paginate", "~> 3.0.pre2"
 
 group :test, :development do
   gem "rspec-rails", ">= 2.0.0.beta.22"
   gem "autotest"
+  gem 'web-app-theme', '>= 0.6.2'
 end
