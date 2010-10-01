@@ -9,7 +9,7 @@ module InheritedResourcesHelper
 
   def list_actions
     actions = []
-    actions << link_to("New", new_resource_url)
+    actions << link_to("New", new_resource_url, :class => 'button')
     actions
   end
 end

@@ -11,7 +11,7 @@ module UsersHelper
 
   def list_actions
     actions = []
-    actions << link_to("Invite", new_user_invitation_url)
+    actions << link_to("Invite", new_user_invitation_url, :class => 'button')
     actions
   end
 end
