@@ -12,7 +12,17 @@ describe Project do
 
     it "should require a name" do
       @project.valid?
-      @project.errors[:name]
+      @project.errors[:name].should include("can't be blank")
+    end
+
+    it "should require an organization" do
+      @project.valid?
+      @project.errors[:owner_organization].should include("can't be blank")
+    end
+
+    it "should require an owner" do
+      @project.valid?
+      @project.errors[:owner_email].should include("can't be blank")
     end
   end
 end

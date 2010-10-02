@@ -1,6 +1,6 @@
 module ProjectsHelper
   include InheritedResourcesHelper
   def list_attributes(r)
-    [:name]
+    [:name, :owner_organization, :owner_email]
   end
 end

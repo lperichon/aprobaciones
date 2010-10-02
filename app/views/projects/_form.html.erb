@@ -29,6 +29,14 @@
     <td><%= f.check_box :paid %></td>
   </tr>
   <tr>
+    <td><%= Project.human_attribute_name :owner_email %></td>
+    <td><%= f.text_field :owner_email %></td>
+  </tr>
+  <tr>
+    <td><%= Project.human_attribute_name :owner_organization %></td>
+    <td><%= f.text_field :owner_organization %></td>
+  </tr>
+  <tr>
     <td colspan="2"><%= f.submit(:class => 'button') %></td>
   </tr>
 <% end %>
