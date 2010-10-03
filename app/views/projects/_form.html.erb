@@ -1,5 +1,5 @@
 <table>
-<%- form_for(resource, :url => resource.new_record? ? collection_url : resource_url(resource)) do |f| %>
+<%= form_for(resource, :url => resource.new_record? ? collection_url : resource_url(resource)) do |f| %>
   <% if resource.errors.any? %>
   <tr>
     <td colspan="2">
@@ -35,6 +35,10 @@
   <tr>
     <td><%= Project.human_attribute_name :owner_organization %></td>
     <td><%= f.text_field :owner_organization %></td>
+  </tr>
+  <tr>
+    <td><%= Project.human_attribute_name :users %></td>
+    <td><%= collection_select :user, :user_ids, User.find(:all, :order => 'email ASC'), :id, :email, { :selected => @project.user_ids }, { :multiple => true, :name => 'project[user_ids][]' } -%></td>
   </tr>
   <tr>
     <td colspan="2"><%= f.submit(:class => 'button') %></td>

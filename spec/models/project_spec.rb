@@ -1,6 +1,7 @@
 require 'spec_helper'
 
 describe Project do
+
   describe "when new" do
     before(:each) do
       @project = Project.new
@@ -23,6 +24,10 @@ describe Project do
     it "should require an owner" do
       @project.valid?
       @project.errors[:owner_email].should include("can't be blank")
+    end
+
+    it 'should have many reviewers' do
+      @project.should respond_to(:users)
     end
   end
 end
