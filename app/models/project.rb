@@ -26,10 +26,20 @@ class Project < ActiveRecord::Base
       transition [:on_hold, :under_revision] => :archived
     end
 
+    event :send_feedback do
+      transition :under_revision => :awaiting_corrections
+    end
+
+    event :restart do
+      transition :awaiting_corrections => :under_revision
+    end
+
     state :on_hold
     state :under_revision
+    state :awaiting_corrections
     state :approved
     state :rejected
     state :archived
+
   end
 end

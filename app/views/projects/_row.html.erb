@@ -23,6 +23,10 @@
             <%= link_to_function "Approve", "$.ajax({type: 'put', url: '#{project_path(r)}', dataType: 'script', data: {event: 'approve'}});" %>
         <% when :reject %>
             <%= link_to_function "Reject", "$.ajax({type: 'put', url: '#{project_path(r)}', dataType: 'script', data: {event: 'reject'}});" %>
+        <% when :restart %>
+            <%= link_to_function "Restart", "$.ajax({type: 'put', url: '#{project_path(r)}', dataType: 'script', data: {event: 'restart'}});" %>
+        <% when :send_feedback %>
+            <%= link_to_function "Send feedback", "$.ajax({type: 'put', url: '#{project_path(r)}', dataType: 'script', data: {event: 'send_feedback'}});" %>
         <% end %>
     <% end %>
   </td>
