@@ -6,7 +6,7 @@
   </tr>
 <% end %>
 </table>
-<% if element_actions.include? :edit %>
+<% if element_actions(resource).include? :edit %>
 <p><%= link_to "Edit", edit_resource_url(resource) %></p>
 <% end %>
 <p><%= link_to "Back", collection_url %></p>

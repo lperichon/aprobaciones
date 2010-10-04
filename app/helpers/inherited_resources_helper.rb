@@ -3,7 +3,7 @@ module InheritedResourcesHelper
     r.attributes
   end
 
-  def element_actions
+  def element_actions(r)
     [:show, :edit, :destroy]
   end
 

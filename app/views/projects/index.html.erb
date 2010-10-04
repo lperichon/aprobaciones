@@ -1,0 +1,28 @@
+<% if collection.any? %>
+<table class="table">
+  <thead>
+    <tr>
+      <% list_attributes(collection.first).each_with_index do |a, i| %>
+      <th class="<%='first' if i == 1 %>"><%= resource_class.human_attribute_name a %></th>
+      <% end %>
+      <th><%= Project.human_attribute_name :state %></th>
+      <th class="last"></th>
+    </tr>
+  </thead>
+  <tbody>
+  <% collection.each do |r| %>
+    <%= render :partial => 'row', :locals => {:r => r} %>
+  <% end %>
+  </tbody>
+</table>
+<% end %>
+<div class="actions-bar wat-cf">
+  <div class="actions">
+    <% list_actions.each do |a| %>
+        <%= a %>
+    <% end %>
+  </div>
+  <div class="pagination">
+    <%= will_paginate collection %>
+  </div>
+</div>

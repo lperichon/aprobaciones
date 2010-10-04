@@ -29,5 +29,13 @@ describe Project do
     it 'should have many reviewers' do
       @project.should respond_to(:users)
     end
+
+    it 'should have a state' do
+      @project.should respond_to(:state)
+    end
+
+    it 'initial state should be on-hold' do
+      @project.state.should eql('on_hold')
+    end
   end
 end

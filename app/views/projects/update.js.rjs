@@ -1,0 +1,1 @@
+page << "$('##{dom_id resource}').replaceWith('#{escape_javascript render :partial => 'row', :locals => {:r => resource }}');"

@@ -5,7 +5,7 @@ module UsersHelper
     [:email]
   end
 
-  def element_actions
+  def element_actions(r)
     [:show, :destroy]
   end
 

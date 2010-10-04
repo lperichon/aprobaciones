@@ -15,7 +15,7 @@
       <td class="<%='first' if i == 1 %>"><%= r.send a %></td>
       <% end %>
       <td class="last">
-        <% element_actions.each_with_index do |a, x| %>
+        <% element_actions(r).each_with_index do |a, x| %>
             <%= '|' unless x == 0 %>
             <% case a %>
             <% when :show %>

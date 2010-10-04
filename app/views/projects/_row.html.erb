@@ -1,0 +1,29 @@
+<tr id="<%= dom_id r %>" class="<%= r.state %>">
+  <% list_attributes(r).each_with_index do |a, i| %>
+      <td class="<%= 'first' if i == 1 %>"><%= r.send a %></td>
+  <% end %>
+  <td><%= r.human_state_name %></td>
+  <td class="last">
+    <% element_actions(r).each_with_index do |a, x| %>
+        <%= '|' unless x == 0 %>
+        <% case a %>
+    <% when :show %>
+            <%= link_to "Show", resource_url(r) %>
+        <% when :edit %>
+            <%= link_to "Edit", edit_resource_url(r) %>
+        <% when :destroy %>
+            <%= link_to "Destroy", resource_url(r), :confirm => 'Are you sure?', :method => :delete %>
+        <% when :start %>
+            <%= link_to_function "Start", "$.ajax({type: 'put', url: '#{project_path(r)}', dataType: 'script', data: {event: 'start'}});" %>
+        <% when :archive %>
+            <%= link_to_function "Archive", "$.ajax({type: 'put', url: '#{project_path(r)}', dataType: 'script', data: {event: 'archive'}});" %>
+        <% when :hold %>
+            <%= link_to_function "Hold", "$.ajax({type: 'put', url: '#{project_path(r)}', dataType: 'script', data: {event: 'hold'}});" %>
+        <% when :approve %>
+            <%= link_to_function "Approve", "$.ajax({type: 'put', url: '#{project_path(r)}', dataType: 'script', data: {event: 'approve'}});" %>
+        <% when :reject %>
+            <%= link_to_function "Reject", "$.ajax({type: 'put', url: '#{project_path(r)}', dataType: 'script', data: {event: 'reject'}});" %>
+        <% end %>
+    <% end %>
+  </td>
+</tr>

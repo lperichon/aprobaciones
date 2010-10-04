@@ -1,0 +1,19 @@
+tr.on_hold {
+  background: #dcdcdc;
+}
+
+tr.under_revision {
+  background: #ffd700;
+}
+
+tr.rejected {
+  background: #ff6347;
+}
+
+tr.approved {
+  background: #adff2f;
+}
+
+tr.archived {
+  background: #a9a9a9;
+}

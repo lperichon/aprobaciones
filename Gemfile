@@ -34,6 +34,8 @@ gem 'devise_invitable', :git => 'git://github.com/scambra/devise_invitable.git'
 gem 'inherited_resources', '1.1.2'
 gem 'inherited_resources_views'
 gem "will_paginate", "~> 3.0.pre2"
+gem 'state_machine', '0.9.4'
+gem 'ruby-graphviz', '0.9.17', :require => 'graphviz'
 
 group :test, :development do
   gem "rspec-rails", ">= 2.0.0.beta.22"
