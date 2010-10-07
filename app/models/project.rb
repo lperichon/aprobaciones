@@ -23,7 +23,7 @@ class Project < ActiveRecord::Base
     end
 
     event :archive do
-      transition [:on_hold, :under_revision] => :archived
+      transition [:on_hold, :under_revision, :awaiting_corrections] => :archived
     end
 
     event :send_feedback do
@@ -31,7 +31,7 @@ class Project < ActiveRecord::Base
     end
 
     event :restart do
-      transition :awaiting_corrections => :under_revision
+      transition [:awaiting_corrections, :archived] => :under_revision
     end
 
     state :on_hold
