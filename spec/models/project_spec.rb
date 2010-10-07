@@ -1,37 +1,17 @@
 require 'spec_helper'
 
 describe Project do
+  it { should validate_presence_of :name }
+  it { should validate_presence_of :owner_organization }
+  it { should validate_presence_of :owner_email }
+  it { should have_and_belong_to_many :users }
+  it { should respond_to :state }
+
+  it { should have_many :items }
 
   describe "when new" do
     before(:each) do
       @project = Project.new
-    end
-
-    it "should not be valid" do
-      @project.should_not be_valid
-    end
-
-    it "should require a name" do
-      @project.valid?
-      @project.errors[:name].should include("can't be blank")
-    end
-
-    it "should require an organization" do
-      @project.valid?
-      @project.errors[:owner_organization].should include("can't be blank")
-    end
-
-    it "should require an owner" do
-      @project.valid?
-      @project.errors[:owner_email].should include("can't be blank")
-    end
-
-    it 'should have many reviewers' do
-      @project.should respond_to(:users)
-    end
-
-    it 'should have a state' do
-      @project.should respond_to(:state)
     end
 
     it 'initial state should be on-hold' do

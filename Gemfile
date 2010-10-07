@@ -39,6 +39,7 @@ gem 'ruby-graphviz', '0.9.17', :require => 'graphviz'
 
 group :test, :development do
   gem "rspec-rails", ">= 2.0.0.beta.22"
+  gem "shoulda", '2.11.3'
   gem "autotest"
   gem 'web-app-theme', '>= 0.6.2'
 end
