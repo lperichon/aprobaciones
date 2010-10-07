@@ -1,3 +1,7 @@
+<div class='block'>
+<div class='content'>
+<div class='inner'>
+<h2> Show <%= resource_class.name %></h2>
 <table>
 <% resource.attributes.each do |a| %>
   <tr>
@@ -10,3 +14,6 @@
 <p><%= link_to "Edit", edit_resource_url(resource) %></p>
 <% end %>
 <p><%= link_to "Back", collection_url %></p>
+</div>
+</div>
+</div>

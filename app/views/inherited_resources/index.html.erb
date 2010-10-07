@@ -1,3 +1,7 @@
+<div class='block'>
+<div class='content'>
+<div class='inner'>
+<h2> <%= resource_class.name.pluralize %></h2>
 <% if collection.any? %>
 <table class="table">
   <thead>
@@ -41,4 +45,7 @@
   <div class="pagination">
     <%= will_paginate collection %>
   </div>
+</div>
+</div>
+</div>
 </div>
