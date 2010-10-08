@@ -1,0 +1,22 @@
+<div class='block'>
+<div class='content'>
+<div class='inner'>
+<h2> Show <%= resource_class.name %></h2>
+<table>
+<% rest_in_place(resource, resource_url(resource)) do |rip| %>
+  <% show_attributes(resource).each do |a| %>
+    <tr>
+      <th><%= resource_class.human_attribute_name a %></th>
+      <% type = {:closed => 'checkbox'} %>
+      <td><%= rip.editable(a, type[a] ) %></td>
+    </tr>
+  <% end %>
+<% end %>
+</table>
+<% if element_actions(resource).include? :edit %>
+<p><%= link_to "Edit", edit_resource_url(resource) %></p>
+<% end %>
+<p><%= link_to "Back", collection_url %></p>
+</div>
+</div>
+</div>

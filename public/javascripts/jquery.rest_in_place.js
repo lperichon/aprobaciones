@@ -96,7 +96,7 @@ RestInPlaceEditor.prototype = {
   loadSuccessCallback : function(data) {
     //jq14: data as JS object, not string.
     if (jQuery.fn.jquery < "1.4") data = eval('(' + data + ')' );
-    this.element.html(data[this.objectName][this.attributeName]);
+    this.element.html(data[this.objectName][this.attributeName].toString());
     this.element.bind('click', {editor: this}, this.clickHandler);    
   },
   
@@ -143,6 +143,25 @@ RestInPlaceEditor.forms = {
     
     getValue :  function() {
       return this.element.find("textarea").val();
+    },
+
+    blurHandler : function(event) {
+      event.data.editor.update();
+    }
+
+  },
+
+  "checkbox" : {
+    /* is bound to the editor and called to replace the element's content with a form for editing data */
+    activateForm : function() {
+      this.element.html("<form action='javascript:void(0)' style='display:inline;'><input type='checkbox' " + (this.oldValue == 'true' ? "checked='checked'" : '') + " /></form>");
+      this.element.find('input')[0].select();
+      this.element.find("input")
+        .bind('blur', {editor: this}, RestInPlaceEditor.forms.checkbox.blurHandler);
+    },
+
+    getValue :  function() {
+      return this.element.find("input").is(':checked');
     },
 
     blurHandler : function(event) {
