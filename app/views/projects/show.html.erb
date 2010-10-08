@@ -30,11 +30,11 @@
             <%= '|' unless x == 0 %>
             <% case a %>
             <% when :show %>
-                <%= link_to "Show", resource_url(r) %>
+                <%= link_to "Show", project_item_url(@project, r) %>
             <% when :edit %>
-                <%= link_to "Edit", edit_resource_url(r) %>
+                <%= link_to "Edit", edit_project_item_url(@project, r) %>
             <% when :destroy %>
-                <%= link_to "Destroy", resource_url(r), :confirm => 'Are you sure?', :method => :delete %>
+                <%= link_to "Destroy", project_item_url(@project, r), :confirm => 'Are you sure?', :method => :delete %>
             <% end %>
         <% end %>
       </td>
