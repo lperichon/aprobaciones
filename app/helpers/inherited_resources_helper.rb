@@ -1,6 +1,10 @@
 module InheritedResourcesHelper
   def list_attributes(r)
-    r.attributes
+    r.attributes.keys
+  end
+
+  def show_attributes(r)
+    r.attributes.keys
   end
 
   def element_actions(r)

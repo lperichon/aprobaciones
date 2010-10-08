@@ -14,6 +14,7 @@ ActiveRecord::Schema.define(:version => 20101007184624) do
 
   create_table "items", :force => true do |t|
     t.integer  "project_id"
+    t.string   "name"
     t.boolean  "closed"
     t.datetime "created_at"
     t.datetime "updated_at"

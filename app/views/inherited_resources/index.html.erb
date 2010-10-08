@@ -7,7 +7,7 @@
   <thead>
     <tr>
       <% list_attributes(collection.first).each_with_index do |a, i| %>
-      <th class="<%='first' if i == 1 %>"><%= resource_class.human_attribute_name a %></th>
+      <th><%= resource_class.human_attribute_name a %></th>
       <% end %>
       <th class="last"></th>
     </tr>

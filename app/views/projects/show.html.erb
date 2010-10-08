@@ -1,0 +1,56 @@
+<div class='block'>
+<div class='content'>
+<div class='inner'>
+<h2> Show <%= resource_class.name %></h2>
+<table>
+<% show_attributes(resource).each do |a| %>
+  <tr>
+    <th><%= resource_class.human_attribute_name a %></th>
+    <td><%= resource.send a %></td>
+  </tr>
+<% end %>
+</table>
+<h3>Items</h3>
+<table class="table">
+  <thead>
+    <tr>
+      <th><%= Item.human_attribute_name :name %></th>
+      <th><%= Item.human_attribute_name :closed %></th>
+      <th class="last"></th>
+    </tr>
+  </thead>
+  <tbody>
+  <% @project.items.each_with_index do |r, n| %>
+    <tr class="<%= (n%2 == 0) ? 'even' : 'odd' %>">
+      <td class="first"><%= r.name %></td>
+      <td><%= r.closed %></td>
+      <td class="last">
+        <% actions = [:show, :edit, :destroy] %>
+        <% actions.each_with_index do |a, x| %>
+            <%= '|' unless x == 0 %>
+            <% case a %>
+            <% when :show %>
+                <%= link_to "Show", resource_url(r) %>
+            <% when :edit %>
+                <%= link_to "Edit", edit_resource_url(r) %>
+            <% when :destroy %>
+                <%= link_to "Destroy", resource_url(r), :confirm => 'Are you sure?', :method => :delete %>
+            <% end %>
+        <% end %>
+      </td>
+    </tr>
+  <% end %>
+  </tbody>
+</table>
+<div class="actions-bar wat-cf">
+  <div class="actions">
+    <%= link_to("New", new_project_item_url(resource), :class => 'button') %>
+  </div>
+</div>
+<% if element_actions(resource).include? :edit %>
+<p><%= link_to "Edit", edit_resource_url(resource) %></p>
+<% end %>
+<p><%= link_to "Back", collection_url %></p>
+</div>
+</div>
+</div>
