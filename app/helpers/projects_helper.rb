@@ -1,5 +1,6 @@
 module ProjectsHelper
   include InheritedResourcesHelper
+  include ApplicationHelper
 
   def show_attributes(r)
     [:name, :owner_organization, :owner_email, :observations, :status, :paid]

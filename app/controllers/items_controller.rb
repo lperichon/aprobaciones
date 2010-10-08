@@ -1,6 +1,8 @@
 class ItemsController < InheritedResources::Base
   actions :all, :except => :index
 
+  respond_to :json, :only => [ :show, :update ]
+
   belongs_to :project
 
   def create

@@ -1,5 +1,6 @@
 module UsersHelper
   include InheritedResourcesHelper
+  include ApplicationHelper
 
   def list_attributes(r)
     [:email]

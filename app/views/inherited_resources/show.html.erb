@@ -3,11 +3,13 @@
 <div class='inner'>
 <h2> Show <%= resource_class.name %></h2>
 <table>
-<% show_attributes(resource).each do |a| %>
-  <tr>
-    <th><%= resource_class.human_attribute_name a %></th>
-    <td><%= resource.send a %></td>
-  </tr>
+<% rest_in_place(resource, resource_url(resource)) do |rip| %>
+  <% show_attributes(resource).each do |a| %>
+    <tr>
+      <th><%= resource_class.human_attribute_name a %></th>
+      <td><%= rip.editable a %></td>
+    </tr>
+  <% end %>
 <% end %>
 </table>
 <% if element_actions(resource).include? :edit %>
