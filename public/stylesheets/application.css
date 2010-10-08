@@ -10,7 +10,7 @@ tr.rejected {
   background: #ff6347;
 }
 
-tr.approved {
+tr.approved, tr.closed {
   background: #adff2f;
 }
 

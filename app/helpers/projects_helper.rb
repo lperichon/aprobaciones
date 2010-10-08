@@ -2,7 +2,7 @@ module ProjectsHelper
   include InheritedResourcesHelper
 
   def show_attributes(r)
-    [:name, :owner_organization, :owner_email]
+    [:name, :owner_organization, :owner_email, :observations, :status, :paid]
   end
 
   def list_attributes(r)

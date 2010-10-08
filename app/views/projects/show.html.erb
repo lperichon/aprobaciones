@@ -21,7 +21,7 @@
   </thead>
   <tbody>
   <% @project.items.each_with_index do |r, n| %>
-    <tr class="<%= (n%2 == 0) ? 'even' : 'odd' %>">
+    <tr class="<%= 'closed' if r.closed? %>">
       <td class="first"><%= r.name %></td>
       <td><%= r.closed %></td>
       <td class="last">

@@ -2,8 +2,8 @@ require 'spec_helper'
 
 describe ProjectsHelper do
   describe "show_attributes" do
-    it "include :name, organization and :owner_email" do
-      !helper.show_attributes(Project.new).should eql([:name, :owner_organization, :owner_email])
+    it "include :name, organization, :owner_email, :observations, :status, :paid" do
+      !helper.show_attributes(Project.new).should eql([:name, :owner_organization, :owner_email, :observations, :status, :paid])
     end
   end
 

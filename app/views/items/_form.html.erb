@@ -1,0 +1,27 @@
+<table>
+<%= form_for(resource, :url => resource.new_record? ? collection_url : resource_url(resource)) do |f| %>
+  <% if resource.errors.any? %>
+  <tr>
+    <td colspan="2">
+      <h2><%= pluralize(resource.errors.count, "error") %> prohibited this testa from being saved:</h2>
+      <ul>
+      <% resource.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </td>
+  </tr>
+  <% end %>
+  <tr>
+    <td><%= Item.human_attribute_name :name %></td>
+    <td><%= f.text_field :name %></td>
+  </tr>
+  <tr>
+    <td><%= Item.human_attribute_name :closed %></td>
+    <td><%= f.check_box :closed %></td>
+  </tr>
+  <tr>
+    <td colspan="2"><%= f.submit(:class => 'button') %></td>
+  </tr>
+<% end %>
+</table>
