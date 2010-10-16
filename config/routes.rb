@@ -4,7 +4,9 @@ Aprobaciones::Application.routes.draw do
   resources :users, :only => [:index, :show, :destroy]
 
   resources :projects do
-    resources :items, :except => :index
+    resources :items, :except => :index do
+      resources :iterations, :except => :index
+    end
   end
   # The priority is based upon order of creation:
   # first created -> highest priority.

@@ -1,4 +1,11 @@
 <div class='block'>
+<div class="secondary-navigation">
+  <ul class="wat-cf">
+    <% @item.iterations.each_with_index do |iteration, index| %>
+        <li class="<%= 'active first' if index == 0 %>"><%= link_to_function l(iteration.created_at.to_date, :format => :short), "$('ul.wat-cf li.active').removeClass('active');$(this).parent().addClass('active');" %></li>
+    <% end %>
+  </ul>
+</div>
 <div class='content'>
 <div class='inner'>
 <h2> Show <%= resource_class.name %></h2>
@@ -13,8 +20,11 @@
   <% end %>
 <% end %>
 </table>
+
 <% if element_actions(resource).include? :edit %>
-<p><%= link_to "Edit", edit_resource_url(resource) %></p>
+<p><%= link_to "Edit", edit_resource_url(resource) %>
+<%= link_to "New Iteration", new_project_item_iteration_url(@project, @item) %>
+</p>
 <% end %>
 <p><%= link_to "Back", :back %></p>
 </div>
